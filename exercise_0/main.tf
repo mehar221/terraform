@@ -33,8 +33,8 @@ resource "harness_platform_pipeline" "example" {
           name: Manisha
           identifier: identifier
           allowStageExecutions: false
-          projectIdentifier: projectIdentifier
-          orgIdentifier: orgIdentifier
+          projectIdentifier: Manisha
+          orgIdentifier: default
           tags: {}
           stages:
               - stage:
