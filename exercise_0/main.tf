@@ -1,3 +1,15 @@
+terraform {
+  required_providers {
+    harness = {
+      source = "harness/harness"
+      version = "0.34.3"
+    }
+  }
+}
+
+provider "harness" {
+  # Configuration options
+}
 resource "harness_platform_pipeline" "example" {
   identifier = "identifier"
   org_id     = "orgIdentifier"
