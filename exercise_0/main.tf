@@ -26,7 +26,7 @@ resource "harness_platform_pipeline" "example" {
     repo_name      = "repoName"
   }
  tags = {
-name = "example"
+ Name = "example"
 }
   yaml = <<-EOT
       pipeline:
