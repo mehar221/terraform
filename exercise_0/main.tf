@@ -30,7 +30,7 @@ resource "harness_platform_pipeline" "example" {
 #}
   yaml = <<-EOT
       pipeline:
-          name: name
+          name: Manisha
           identifier: identifier
           allowStageExecutions: false
           projectIdentifier: projectIdentifier
