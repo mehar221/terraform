@@ -130,7 +130,7 @@ resource "harness_platform_pipeline" "test" {
   import_from_git = true
   git_import_info {
     branch_name   = "master"
-    file_path     = "exercisr_0/main.tf"
+    file_path     = ".harness/pipeline.yaml"
     connector_ref = "account.terraformgitconnector"
     repo_name     = "terraform"
   }
