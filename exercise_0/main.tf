@@ -21,7 +21,7 @@ resource "harness_platform_pipeline" "example" {
     branch_name    = "branchName"
     commit_message = "commitMessage"
     file_path      = "filePath"
-    connector_ref  = "accountgithubconnector"
+    connector_ref  = "terraformgitconnector"
     store_type     = "REMOTE"
     repo_name      = "repoName"
   }
@@ -54,7 +54,7 @@ resource "harness_platform_pipeline" "example" {
                           infrastructureDefinition:
                               type: KubernetesDirect
                               spec:
-                                  connectorRef: accountgithubconnector
+                                  connectorRef: terraformgitconnector
                                   namespace: test
                                   releaseName: release-<+INFRA_KEY>
                           allowSimultaneousDeployments: false
@@ -119,8 +119,8 @@ resource "harness_platform_pipeline" "example" {
 
 ### Importing Pipeline from Git
 resource "harness_platform_organization" "test" {
-  identifier = "identifier"
-  name       = "name"
+  identifier = "default"
+  name       = "default"
 }
 resource "harness_platform_pipeline" "test" {
   identifier      = "gitx"
@@ -129,10 +129,10 @@ resource "harness_platform_pipeline" "test" {
   name            = "Manisha"
   import_from_git = true
   git_import_info {
-    branch_name   = "main"
-    file_path     = ".harness/gitx.yaml"
-    connector_ref = "account.accountgithubconnector"
-    repo_name     = "open-repo"
+    branch_name   = "master"
+    file_path     = "exercisr_0/main.tf"
+    connector_ref = "account.terraformgitconnector"
+    repo_name     = "terraform"
   }
   pipeline_import_request {
     pipeline_name        = "gitx"
