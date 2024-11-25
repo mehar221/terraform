@@ -54,7 +54,7 @@ resource "harness_platform_pipeline" "example" {
                           infrastructureDefinition:
                               type: KubernetesDirect
                               spec:
-                                  connectorRef: testconf
+                                  connectorRef: terraformgitconnector
                                   namespace: test
                                   releaseName: release-<+INFRA_KEY>
                           allowSimultaneousDeployments: false
