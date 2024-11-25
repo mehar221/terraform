@@ -8,7 +8,9 @@ terraform {
 }
 
 provider "harness" {
-  # Configuration options
+  endpoint         = "https://app.harness.io/gateway"
+  account_id       = "qmrzY7joS9SsdtHPFP8WHQ"
+  platform_api_key = "pat.qmrzY7joS9SsdtHPFP8WHQ.674419cfffbf013c20ee0bbe.2ASb8pvt2nK0S5G3sWGT"
 }
 resource "harness_platform_pipeline" "example" {
   identifier = "identifier"
