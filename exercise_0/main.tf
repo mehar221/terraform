@@ -14,9 +14,9 @@ provider "harness" {
 }
 resource "harness_platform_pipeline" "example" {
   identifier = "identifier"
-  org_id     = "orgIdentifier"
-  project_id = "projectIdentifier"
-  name       = "name"
+  org_id     = "default"
+  project_id = "Manisha"
+  name       = "Manisha"
   git_details {
     branch_name    = "branchName"
     commit_message = "commitMessage"
@@ -25,7 +25,9 @@ resource "harness_platform_pipeline" "example" {
     store_type     = "REMOTE"
     repo_name      = "repoName"
   }
- # tags = "new-pipeline"
+ tags = {
+name = "example"
+}
   yaml = <<-EOT
       pipeline:
           name: name
