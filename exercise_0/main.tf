@@ -23,7 +23,7 @@ resource "harness_platform_pipeline" "example" {
     store_type     = "REMOTE"
     repo_name      = "repoName"
   }
-  tags = "new-pipeline"
+ # tags = "new-pipeline"
   yaml = <<-EOT
       pipeline:
           name: name
@@ -103,7 +103,7 @@ resource "harness_platform_pipeline" "example" {
                                               timeout: 10m
                                               spec: {}
                           rollbackSteps: []
-                  tags: "hey"
+                 # tags: "hey"
                   failureStrategies:
                       - onFailure:
                               errors:
