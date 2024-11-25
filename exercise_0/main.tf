@@ -21,7 +21,7 @@ resource "harness_platform_pipeline" "example" {
     branch_name    = "branchName"
     commit_message = "commitMessage"
     file_path      = "filePath"
-    connector_ref  = "terraformgitconnector"
+    connector_ref  = "accountgithubconnector"
     store_type     = "REMOTE"
     repo_name      = "repoName"
   }
@@ -54,7 +54,7 @@ resource "harness_platform_pipeline" "example" {
                           infrastructureDefinition:
                               type: KubernetesDirect
                               spec:
-                                  connectorRef: terraformgitconnector
+                                  connectorRef: accountgithubconnector
                                   namespace: test
                                   releaseName: release-<+INFRA_KEY>
                           allowSimultaneousDeployments: false
@@ -131,7 +131,7 @@ resource "harness_platform_pipeline" "test" {
   git_import_info {
     branch_name   = "master"
     file_path     = ".harness/pipeline.yaml"
-    connector_ref = "account.terraformgitconnector"
+    connector_ref = "account.accountgithubconnector"
     repo_name     = "terraform"
   }
   pipeline_import_request {
