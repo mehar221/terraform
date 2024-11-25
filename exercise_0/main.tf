@@ -123,13 +123,13 @@ resource "harness_platform_organization" "test" {
 resource "harness_platform_pipeline" "test" {
   identifier      = "gitx"
   org_id          = "default"
-  project_id      = "V"
-  name            = "gitx"
+  project_id      = "Manisha"
+  name            = "Manisha"
   import_from_git = true
   git_import_info {
     branch_name   = "main"
     file_path     = ".harness/gitx.yaml"
-    connector_ref = "account.DoNotDeleteGithub"
+    connector_ref = "account.terraformgitconnector"
     repo_name     = "open-repo"
   }
   pipeline_import_request {
