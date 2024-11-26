@@ -9,8 +9,8 @@ resource "aws_s3_bucket" "tf-root-module-bucket" {
   acl = "private"
   region = "${var.s3_bucket_region}"
   
-  versioning {
-    enabled = true
+  versioning_configuration {
+    status = "Enabled"
   }
   
   tags = {
