@@ -7,7 +7,6 @@ provider "aws" {
 resource "aws_s3_bucket" "tf-root-module-bucket" {
   bucket = "${var.s3_bucket_name}"
   acl = "private"
-  region = "${var.s3_bucket_region}"
   
   versioning_configuration {
     status = "Enabled"
