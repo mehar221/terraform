@@ -5,18 +5,36 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "tf-root-module-bucket" {
-  bucket = "${var.s3_bucket_name}"
-  acl = "private"
-  
+  bucket = var.s3_bucket_name
+  acl    = "private"
+
+  tags = {
+    Name        = var.s3_bucket_name
+    Environment = var.tag_env
+  }
+}
+
+resource "aws_s3_bucket_versioning" "example" {
+  bucket = aws_s3_bucket.tf-root-module-bucket.id
+
   versioning_configuration {
     status = "Enabled"
   }
+}
+
+#resource "aws_s3_bucket" "tf-root-module-bucket" {
+#  bucket = "${var.s3_bucket_name}"
+#  acl = "private"
   
-  tags = {
-    Name        = "${var.s3_bucket_name}"
-    Environment = "${var.tag_env}"
-  }
- }
+#  versioning_configuration {
+#    status = "Enabled"
+#  }
+  
+#  tags = {
+#    Name        = "${var.s3_bucket_name}"
+ #   Environment = "${var.tag_env}"
+#  }
+# }
 ## module "s3_module_private_repo" {
 ##  source = "git@github.com:rc-harness/private.git"
 ##  }
