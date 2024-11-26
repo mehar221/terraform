@@ -14,14 +14,19 @@ resource "aws_s3_bucket" "tf-root-module-bucket" {
   }
 }
 
-resource "aws_s3_bucket_versioning" "example" {
+resource "aws_s3_bucket_versioning" "tf-root-module-bucket" {
   bucket = aws_s3_bucket.tf-root-module-bucket.id
 
   versioning_configuration {
     status = "Enabled"
   }
 }
+resource "aws_s3_bucket_acl" "tf-root-module-bucket" {
+  depends_on = [aws_s3_bucket_ownership_controls.tf-root-module-bucket]
 
+  bucket = aws_s3_bucket.tf-root-module-bucket.id
+  acl    = "private"
+}
 #resource "aws_s3_bucket" "tf-root-module-bucket" {
 #  bucket = "${var.s3_bucket_name}"
 #  acl = "private"
