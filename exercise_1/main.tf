@@ -13,7 +13,12 @@ resource "aws_s3_bucket" "tf-root-module-bucket" {
     Environment = var.tag_env
   }
 }
-
+resource "aws_s3_bucket_ownership_controls" "tf-root-module-bucket" {
+  bucket = aws_s3_bucket.tf-root-module-bucket.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
 resource "aws_s3_bucket_versioning" "tf-root-module-bucket" {
   bucket = aws_s3_bucket.tf-root-module-bucket.id
 
