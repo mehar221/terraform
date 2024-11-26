@@ -6,7 +6,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "tf-root-module-bucket" {
   bucket = var.s3_bucket_name
-  acl    = "private"
+ # acl    = "private"
 
   tags = {
     Name        = var.s3_bucket_name
